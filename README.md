@@ -30,16 +30,17 @@ sudo ifconfig enxa0cec80e9f5c 192.168.1.100
 sudo route add 192.168.1.201 enxa0cec80e9f5c
 roslaunch velodyne_pointcloud VLP16_points.launch
 ```
-4. Open up another terminal (ctrl+shift+t) and type the following into the command line to initialize RViz:
+4. Open up another terminal (Ctrl+Shift+T) and type the following into the command line to initialize RViz:
 ```
 rosrun rviz rviz -f velodyne
 ```
+In RViz go to 'file->open config (Ctrl+O)'. Select the config file 'velodyne_live.rviz'. This is the configuration file for viewing the Velodyne data in RViz.
 To list rosnodes and rostopics use:
 ```
 rosnode list
 rostopic list
 ```
-5. To run one of the nodes in 'scripts', open another terminal (ctrl+shift+tab) and type the following into the command line to "source" the terminal:
+5. To run one of the nodes in 'scripts', open another terminal (Ctrl+Shift+T) and type the following into the command line to "source" the terminal:
 ```
 source ./devel/setup.bash
 ```
