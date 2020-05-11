@@ -30,6 +30,7 @@ sudo ifconfig enxa0cec80e9f5c 192.168.1.100
 sudo route add 192.168.1.201 enxa0cec80e9f5c
 roslaunch velodyne_pointcloud VLP16_points.launch
 ```
+You can access VLP-16 settings by typing the ip '192.168.1.100' into your browser.
 4. Open up another terminal (Ctrl+Shift+T) and type the following into the command line to initialize RViz:
 ```
 rosrun rviz rviz -f velodyne
