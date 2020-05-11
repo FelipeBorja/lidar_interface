@@ -13,6 +13,7 @@ What things you need to install the software and how to install them
 
 ```
 Linux Operating System (preferrably Ubuntu 16.04)
+[Velodyne VLP-16](https://velodynelidar.com/products/puck/) - The LIDAR in question.
 
 ```
 
