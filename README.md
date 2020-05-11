@@ -25,15 +25,15 @@ The things you need to recreate my setup.
 1. Connect the VLP-16 LIDAR to your computer via ethernet. Connect the power supply to the LIDAR. GPS is optional.
 2. Follow Step 1.1 of [this guide](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16) to set up your networks.
 3. Run the following in the command line:
-'''
+```
 sudo ifconfig enxa0cec80e9f5c 192.168.1.100
 sudo route add 192.168.1.201 enxa0cec80e9f5c
 roslaunch velodyne_pointcloud VLP16_points.launch
-'''
+```
 4. Open up another terminal (ctrl+shift+t) and type the following into the command line to initialize RViz:
-'''
+```
 rosrun rviz rviz -f velodyne
-'''
+```
 
 ## Built With
 
