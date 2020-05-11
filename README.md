@@ -9,36 +9,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+The things you need to recreate my setup.
 
-```
-Linux Operating System (preferrably Ubuntu 16.04)
-[Velodyne VLP-16](https://velodynelidar.com/products/puck/) - The LIDAR in question.
-
-```
+* Linux Operating System (preferrably Ubuntu 16.04)
+* Robot Operating System (preferrably [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu))
+* [Velodyne VLP-16](https://velodynelidar.com/products/puck/) - The LIDAR in question.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
+1. Once you have ROS Kinetic installed on Ubuntu, create your [catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
+2. Clone this repository inside: '''catkin ws/src'''.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+1. Follow Step 1.1 of [this guide](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16).
+2. 
 
 ## Built With
 
