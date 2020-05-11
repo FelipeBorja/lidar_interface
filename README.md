@@ -40,7 +40,7 @@ To list rosnodes and rostopics use:
 rosnode list
 rostopic list
 ```
-5. To run one of the nodes in 'scripts', open another terminal (Ctrl+Shift+T) and type the following into the command line to "source" the terminal:
+5. To run one of the nodes in 'scripts', open another terminal (Ctrl+Shift+T). 'cd' into the 'catkin_ws' directory and type the following into the command line to "source" the terminal:
 ```
 source ./devel/setup.bash
 ```
