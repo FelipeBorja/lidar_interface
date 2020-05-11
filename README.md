@@ -34,15 +34,23 @@ roslaunch velodyne_pointcloud VLP16_points.launch
 ```
 rosrun rviz rviz -f velodyne
 ```
-To list rosnodes or rostopics use:
+To list rosnodes and rostopics use:
 ```
 rosnode list
-```
-or
-```
 rostopic list
 ```
-resepctively.
+5. To run one of the nodes in 'scripts', open another terminal (ctrl+shift+tab) and type the following into the command line to "source" the terminal:
+```
+source ./devel/setup.bash
+```
+Then run your selected node with 'rosrun':
+```
+rosrun lidar_interface [node name]
+```
+For example, enter the following into the command line to run 'lidar_xyz.py':
+```
+rosrun lidar_interface lidar_xyz.py
+```
 
 ## Built With
 
