@@ -34,7 +34,7 @@ roslaunch velodyne_pointcloud VLP16_points.launch
 ```
 rosrun rviz rviz -f velodyne
 ```
-In RViz go to 'file->open config (Ctrl+O)'. Select the config file 'velodyne_live.rviz'. This is the configuration file for viewing the Velodyne data in RViz.
+In RViz go to 'file -> Open Config (Ctrl+O)'. Select the config file 'velodyne_live.rviz'. This is the configuration file for viewing the Velodyne data in RViz.
 To list rosnodes and rostopics use:
 ```
 rosnode list
