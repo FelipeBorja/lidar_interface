@@ -7,28 +7,36 @@ import sensor_msgs.point_cloud2
 from sensor_msgs.msg import PointCloud2
 
 def xyz_callback(data):
-    file1 = open("xyz_data.xyz", "a+")
+    file_xyz = open("xyz_data.xyz", "a+")
+    file_txt = open("xyz_data.txt", "a+")
     # Create xyz_array from a PointCloud2 data input
     xyz_array = ros_numpy.point_cloud2.pointcloud2_to_xyz_array(data)
     sample_size = xyz_array.shape[0]
     # Loop through every point in the xyz_array
     for index in range(0,sample_size-1):
         print_point = xyz_array[index]
-        # Turn point into string for printing/writing. Also remove brackets.
-        print_string = ('%s' % print_point)[1:-1]
+        # Get coordinates
+        x = print_point[0]
+        y = print_point[1]
+        z = print_point[2]      
+
+        # Turn point into string for printing/writing
+        print_string = (str(x) + " " + str(y) + " " + str(z))
         print(print_string)
         # Publish to topic /xyz_points
         pub.publish(print_string)
         # Write to file
-        file1.write(print_string + "\n")
+        file_xyz.write(print_string + "\n")
+        file_txt.write(print_string + "\n")
     
-    file1.close()
+    file_xyz.close()
+    file_txt.close()
 
 
-def lidar_xyz():
+def lidar_xyz_txt():
     global pub
     pub = rospy.Publisher('xyz_points', String, queue_size=10)
-    rospy.init_node('lidar_xyz', anonymous=True)
+    rospy.init_node('lidar_xyz_txt', anonymous=True)
     rospy.Subscriber('velodyne_points', PointCloud2, xyz_callback)
 
     # spin() simply keeps python from exiting until this node is stopped
@@ -36,6 +44,6 @@ def lidar_xyz():
 
 if __name__ == '__main__':
     try:
-        lidar_xyz()
+        lidar_xyz_txt()
     except rospy.ROSInterruptException:
         pass
