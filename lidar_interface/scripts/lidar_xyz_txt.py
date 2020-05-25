@@ -7,7 +7,6 @@ import sensor_msgs.point_cloud2
 from sensor_msgs.msg import PointCloud2
 
 def xyz_callback(data):
-    file_xyz = open("xyz_data.xyz", "a+")
     file_txt = open("xyz_data.txt", "a+")
     # Create xyz_array from a PointCloud2 data input
     xyz_array = ros_numpy.point_cloud2.pointcloud2_to_xyz_array(data)
@@ -26,7 +25,6 @@ def xyz_callback(data):
         # Publish to topic /xyz_points
         pub.publish(print_string)
         # Write to file
-        file_xyz.write(print_string + "\n")
         file_txt.write(print_string + "\n")
     
     file_xyz.close()
