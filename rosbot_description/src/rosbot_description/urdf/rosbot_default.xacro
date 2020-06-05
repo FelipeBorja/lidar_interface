@@ -1,8 +1,7 @@
 <?xml version='1.0'?>
 
-<robot name="rosbot"
+<robot name="rosbot" 
   xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:property name="M_PI" value="3.1415926535897931" />
 
   <xacro:arg name="robot_namespace" default=""/>
 
@@ -21,10 +20,10 @@
     <inertial>
       <mass value="5"/>
       <origin xyz="0 0 0.04" rpy=" 0 0 0"/>
-      <inertia
-      ixx="0.01" ixy="0.01" ixz="0"
-      iyy="0.01" iyz="0.01"
-      izz="0.01"
+      <inertia 
+      ixx="0.01" ixy="0.01" ixz="0" 
+      iyy="0.01" iyz="0.01" 
+      izz="0.01" 
       />
     </inertial>
 
@@ -57,10 +56,10 @@
     <inertial>
       <mass value="0.01"/>
       <origin xyz="0 0 0.055" rpy=" 0 0 0"/>
-      <inertia
-      ixx="0.0" ixy="0" ixz="0"
-      iyy="0.0" iyz="0"
-      izz="0.0"
+      <inertia 
+      ixx="0.0" ixy="0" ixz="0" 
+      iyy="0.0" iyz="0" 
+      izz="0.0" 
       />
     </inertial>
     <visual name='top'>
@@ -95,9 +94,9 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <mass value="0.5"/>
-      <inertia
-      ixx="0.001" ixy="0.0" ixz="0.0"
-      iyy="0.001" iyz="0.0"
+      <inertia 
+      ixx="0.001" ixy="0.0" ixz="0.0" 
+      iyy="0.001" iyz="0.0" 
       izz="0.001"/>
     </inertial>
   </link>
@@ -126,9 +125,9 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <mass value="0.5"/>
-      <inertia
-      ixx="0.001" ixy="0.0" ixz="0.0"
-      iyy="0.001" iyz="0.0"
+      <inertia 
+      ixx="0.001" ixy="0.0" ixz="0.0" 
+      iyy="0.001" iyz="0.0" 
       izz="0.001"/>
     </inertial>
   </link>
@@ -157,9 +156,9 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <mass value="0.5"/>
-      <inertia
-      ixx="0.001" ixy="0.0" ixz="0.0"
-      iyy="0.001" iyz="0.0"
+      <inertia 
+      ixx="0.001" ixy="0.0" ixz="0.0" 
+      iyy="0.001" iyz="0.0" 
       izz="0.001"/>
     </inertial>
   </link>
@@ -188,9 +187,9 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <mass value="0.5"/>
-      <inertia
-      ixx="0.001" ixy="0.0" ixz="0.0"
-      iyy="0.001" iyz="0.0"
+      <inertia 
+      ixx="0.001" ixy="0.0" ixz="0.0" 
+      iyy="0.001" iyz="0.0" 
       izz="0.001"/>
     </inertial>
   </link>
@@ -328,7 +327,7 @@
   </joint>
 
   <!-- rplidar Laser -->
-  <!-- <link name="laser">
+  <link name="laser">
     <collision>
       <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
       <geometry>
@@ -348,61 +347,7 @@
       <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
     </inertial>
-  </link> -->
-
-<!-- Velodyne Link Stuff -->
-
-  <link name="laser">
-    <collision>
-      <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
-      <geometry>
-        <cylinder radius="0.0516" length="0.0717"/>
-      </geometry>
-    </collision>
-
-    <visual>
-      <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
-      <geometry>
-        <mesh filename="package://rosbot_description/meshes/VLP16_base_1.dae" scale="0.001 0.001 0.001" />
-      </geometry>
-    </visual>
-    <visual>
-      <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
-      <geometry>
-        <mesh filename="package://rosbot_description/meshes/VLP16_base_2.dae" scale="0.001 0.001 0.001" />
-      </geometry>
-    </visual>
-
-    <inertial>
-      <mass value="0.83"/>
-      <origin xyz="0 0 0.03585"/>
-      <inertia ixx="${(0.83 * (3.0*0.0516*0.0516 + 0.0717*0.0717)) / 12.0}" ixy="0" ixz="0"
-        iyy="${(0.83 * (3.0*0.0516*0.0516 + 0.0717*0.0717)) / 12.0}" iyz="0"
-        izz="${0.5 * 0.83 * (0.0516*0.0516)}"/>
-    </inertial>
   </link>
-  <joint name="$laser_base_scan_joint" type="fixed" >
-    <origin xyz="0 0 0.0377" rpy="0 0 0" />
-    <parent link="laser" />
-    <child link="laser_velodyne"/>
-  </joint>
-  <link name="laser_velodyne">
-    <inertial>
-      <mass value="0.01"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1e-7" ixy="0" ixz="0" iyy="1e-7" iyz="0" izz="1e-7"/>
-    </inertial>
-    <visual>
-      <origin xyz="0 0 -0.0377" />
-      <geometry>
-        <mesh filename="package://rosbot_description/meshes/VLP16_scan.dae" scale="0.001 0.001 0.001" />
-      </geometry>
-    </visual>
-  </link>
-
-
-
-
 
   <joint name="range_fl_joint" type="fixed">
     <axis xyz="0 1 0" />
