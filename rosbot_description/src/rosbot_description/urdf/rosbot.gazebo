@@ -218,7 +218,7 @@
 
 <!-- Velodyne Lidar Stuff -->
 
-  <gazebo reference="laser_velodyne">
+  <!-- <gazebo reference="laser_velodyne">
     <sensor type="ray" name="Velodyne-VLP16">
       <pose>0 0 0 0 0 0</pose>
       <visualize>true</visualize>
@@ -257,7 +257,7 @@
         <gaussianNoise>0.008</gaussianNoise>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
 
 

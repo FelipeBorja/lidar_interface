@@ -320,12 +320,12 @@
   <link name="camera_depth_frame">
   </link>
 
-  <joint name="rplidar_joint" type="fixed">
+  <!-- <joint name="rplidar_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0.02 0 0" rpy="0 0 3.14"/>
     <parent link="base_link"/>
     <child link="laser"/>
-  </joint>
+  </joint> -->
 
   <!-- rplidar Laser -->
   <!-- <link name="laser">
@@ -352,7 +352,7 @@
 
 <!-- Velodyne Link Stuff -->
 
-  <link name="laser">
+  <!-- <link name="laser">
     <collision>
       <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
       <geometry>
@@ -366,6 +366,7 @@
         <mesh filename="package://rosbot_description/meshes/VLP16_base_1.dae" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
+
     <visual>
       <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
       <geometry>
@@ -398,8 +399,14 @@
         <mesh filename="package://rosbot_description/meshes/VLP16_scan.dae" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
-  </link>
+  </link> -->
 
+<!-- Velodyne Include Stuff -->
+
+  <xacro:include filename="$(find rosbot_description)/urdf/VLP-16-modified.urdf.xacro"/>
+  <VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points" hz="10" samples="440" gpu="false">
+    <origin xyz="0.025 0 0.055" rpy="0 0 0" />
+  </VLP-16>
 
 
 
