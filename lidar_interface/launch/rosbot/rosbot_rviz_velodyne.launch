@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find lidar_interface)/launch/rosbot/rosbot_velodyne.launch"></include>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find lidar_interface)/urdf/rosbot_velodyne.xacro'"/>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lidar_interface)/rviz/rosbot_velodyne.rviz" required="true" output="screen"/>
+
+</launch>

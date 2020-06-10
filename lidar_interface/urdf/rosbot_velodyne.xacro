@@ -1,7 +1,8 @@
 <?xml version='1.0'?>
 
-<robot name="rosbot" 
+<robot name="rosbot"
   xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.1415926535897931" />
 
   <xacro:arg name="robot_namespace" default=""/>
 
@@ -9,7 +10,7 @@
   <xacro:property name="cameraMass" value="0.1"/>
   <xacro:property name="namespace" value="$(arg robot_namespace)" />
 
-  <xacro:include filename="$(find rosbot_description)/urdf/rosbot.gazebo" />
+  <xacro:include filename="$(find lidar_interface)/urdf/rosbot_velodyne.gazebo" />
   <xacro:include filename="$(find rosbot_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find rosbot_description)/urdf/macros.xacro" />
 
@@ -20,10 +21,10 @@
     <inertial>
       <mass value="5"/>
       <origin xyz="0 0 0.04" rpy=" 0 0 0"/>
-      <inertia 
-      ixx="0.01" ixy="0.01" ixz="0" 
-      iyy="0.01" iyz="0.01" 
-      izz="0.01" 
+      <inertia
+      ixx="0.01" ixy="0.01" ixz="0"
+      iyy="0.01" iyz="0.01"
+      izz="0.01"
       />
     </inertial>
 
@@ -56,10 +57,10 @@
     <inertial>
       <mass value="0.01"/>
       <origin xyz="0 0 0.055" rpy=" 0 0 0"/>
-      <inertia 
-      ixx="0.0" ixy="0" ixz="0" 
-      iyy="0.0" iyz="0" 
-      izz="0.0" 
+      <inertia
+      ixx="0.0" ixy="0" ixz="0"
+      iyy="0.0" iyz="0"
+      izz="0.0"
       />
     </inertial>
     <visual name='top'>
@@ -94,9 +95,9 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <mass value="0.5"/>
-      <inertia 
-      ixx="0.001" ixy="0.0" ixz="0.0" 
-      iyy="0.001" iyz="0.0" 
+      <inertia
+      ixx="0.001" ixy="0.0" ixz="0.0"
+      iyy="0.001" iyz="0.0"
       izz="0.001"/>
     </inertial>
   </link>
@@ -125,9 +126,9 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <mass value="0.5"/>
-      <inertia 
-      ixx="0.001" ixy="0.0" ixz="0.0" 
-      iyy="0.001" iyz="0.0" 
+      <inertia
+      ixx="0.001" ixy="0.0" ixz="0.0"
+      iyy="0.001" iyz="0.0"
       izz="0.001"/>
     </inertial>
   </link>
@@ -156,9 +157,9 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <mass value="0.5"/>
-      <inertia 
-      ixx="0.001" ixy="0.0" ixz="0.0" 
-      iyy="0.001" iyz="0.0" 
+      <inertia
+      ixx="0.001" ixy="0.0" ixz="0.0"
+      iyy="0.001" iyz="0.0"
       izz="0.001"/>
     </inertial>
   </link>
@@ -187,9 +188,9 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <mass value="0.5"/>
-      <inertia 
-      ixx="0.001" ixy="0.0" ixz="0.0" 
-      iyy="0.001" iyz="0.0" 
+      <inertia
+      ixx="0.001" ixy="0.0" ixz="0.0"
+      iyy="0.001" iyz="0.0"
       izz="0.001"/>
     </inertial>
   </link>
@@ -319,15 +320,15 @@
   <link name="camera_depth_frame">
   </link>
 
-  <joint name="rplidar_joint" type="fixed">
+  <!-- <joint name="rplidar_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0.02 0 0" rpy="0 0 3.14"/>
     <parent link="base_link"/>
     <child link="laser"/>
-  </joint>
+  </joint> -->
 
   <!-- rplidar Laser -->
-  <link name="laser">
+  <!-- <link name="laser">
     <collision>
       <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
       <geometry>
@@ -347,7 +348,18 @@
       <origin xyz="0 0 0.058" rpy="1.5707 0 4.71"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
     </inertial>
-  </link>
+  </link> -->
+
+
+<!-- Velodyne LIDAR -->
+
+  <xacro:include filename="$(find lidar_interface)/urdf/VLP-16-modified.urdf.xacro"/>
+  <VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points" hz="10" samples="440" gpu="false">
+    <origin xyz="0.025 0 0.055" rpy="0 0 0" />
+  </VLP-16>
+
+
+
 
   <joint name="range_fl_joint" type="fixed">
     <axis xyz="0 1 0" />
