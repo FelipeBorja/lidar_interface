@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Launch Rosbot -->
+  <include file="$(find lidar_interface)/launch/rosbot/rosbot_velodyne.launch"></include>
+
+  <!-- Establish robot_description -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find lidar_interface)/urdf/rosbot_velodyne.xacro'"/>
+
+  <!-- Launch hdl_graph_slam -->
+  <include file="$(find lidar_interface)/launch/hdl_graph_slam_fixed.launch"></include>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lidar_interface)/rviz/hdl_rosbot_velodyne.rviz" required="true" output="screen"/>
+
+</launch>
