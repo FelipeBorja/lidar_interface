@@ -13,6 +13,9 @@
   <!-- Launch hdl_graph_slam -->
   <include file="$(find hdl_graph_slam)/launch/hdl_graph_slam.launch"></include>
 
+  <!-- Link map and nav frames -->
+  <node pkg="tf" type="static_transform_publisher" name="map_to_nav" args="0 0 0 0 0 0 /map /nav 100"/>
+
   <!-- Show in Rviz   -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find hdl_graph_slam)/rviz/hdl_graph_slam.rviz" 
 		required="true" output="screen"/>
