@@ -1,4 +1,7 @@
+<!-- Launch file for "voxelizing" downsampling of velodyne point cloud.-->
+
 <launch>
+
   <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
 
   <!-- Run a VoxelGrid filter to clean NaNs and downsample the data -->
@@ -12,4 +15,5 @@
       leaf_size: 0.1
     </rosparam>
   </node>
+
 </launch>

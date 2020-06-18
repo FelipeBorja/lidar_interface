@@ -20,39 +20,16 @@ The things you need to recreate my setup.
 1. Once you have ROS Kinetic installed on Ubuntu, create your [catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
 2. Clone this repository inside: 'catkin ws/src'.
 
-## Deployment
+## Included Packages
+* velodyne:
+* velodyne_simulator
 
-1. Connect the VLP-16 LIDAR to your computer via ethernet. Connect the power supply to the LIDAR. GPS is optional.
-2. Follow Step 1.1 of [this guide](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16) to set up your networks.
-3. Run the following three lines in the command line:
-```
-sudo ifconfig enxa0cec80e9f5c 192.168.1.100
-sudo route add 192.168.1.201 enxa0cec80e9f5c
-roslaunch velodyne_pointcloud VLP16_points.launch
-```
-You can access VLP-16 settings by typing the ip '192.168.1.201' into your browser.
-4. Open up another terminal (Ctrl+Shift+T) and type the following into the command line to initialize RViz:
-```
-rosrun rviz rviz -f velodyne
-```
-In RViz go to 'File -> Open Config (Ctrl+O)'. Select the config file 'velodyne_live.rviz' from the repository. This is the configuration file for viewing the Velodyne data in RViz.
-To list rosnodes and rostopics use:
-```
-rosnode list
-rostopic list
-```
-5. To run one of the nodes in 'scripts', open another terminal (Ctrl+Shift+T). 'cd' into the 'catkin_ws' directory and type the following into the command line to "source" the terminal:
-```
-source ./devel/setup.bash
-```
-Then run your selected node with 'rosrun':
-```
-rosrun lidar_interface [node name]
-```
-For example, enter the following into the command line to run 'lidar_xyz.py':
-```
-rosrun lidar_interface lidar_xyz.py
-```
+## Roslaunch Files
+The following files are located in ```lidar_interface/lidar_interface/launch```. Use these to launch experiments.
+* ```octomap_quadrotor_velodyne.launch```: Quadrotor simulation with velodyne sensor. Runs Octomap mapping algorithm. Incorporates: octomap, velodyne_simulator, tum_simulator.
+
+## Scripts
+The following files are located in ```lidar_interface/lidar_interface/scripts```. Use these to launch experiments.
 
 ## Built With
 
@@ -62,6 +39,7 @@ rosrun lidar_interface lidar_xyz.py
 ## Authors
 
 * **Felipe Borja** - [FelipeBorja](https://github.com/FelipeBorja)
+* **Nishanth Mankame** - [nishmankame](https://github.com/nishmankame)
 
 
 ## Acknowledgments
