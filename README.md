@@ -65,6 +65,8 @@ All launch files are stored in the ```lidar_interface``` package under ```lidar_
   * Includes the following packages: ```hector_slam```
 
 
+## Running Moveit
+This package already has the Moveit configurations set up for your. To run Moveit, simply launch the quadrotor in the gazebo world and launch the ```demo.launch``` file located in the ```ardrone_moveit_config``` package.
 
 
 ## Scripts
