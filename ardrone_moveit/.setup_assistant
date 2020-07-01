@@ -1,11 +1,11 @@
 moveit_setup_assistant_config:
   URDF:
     package: lidar_interface
-    relative_path: urdf/quadrotor_velodyne.urdf.xacro
+    relative_path: urdf/quadrotor_velodyne_V.urdf.xacro
     xacro_args: "--inorder "
   SRDF:
     relative_path: config/quadrotor_hokuyo_utm30lx.srdf
   CONFIG:
     author_name: Nishanth Mankame
     author_email: nishmankame@vt.edu
-    generated_timestamp: 1593480881
+    generated_timestamp: 1593571379

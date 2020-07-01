@@ -42,9 +42,9 @@ xmlns:xacro="http://ros.org/wiki/xacro">
     </xacro:generic_camera>
 
     <!-- Velodyne LIDAR -->
-    <xacro:include filename="$(find lidar_interface)/urdf/VLP-16-flight.urdf.xacro"/>
+    <xacro:include filename="$(find lidar_interface)/urdf/VLP-16-flight_V.urdf.xacro"/>
     <VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points" hz="10" samples="440" gpu="false">
-        <origin xyz="0.0 0.0 0.07" rpy="0 0 0" />
+        <origin xyz="0.0 0.0 0.07" rpy="0 ${M_PI/2} 0" />
     </VLP-16>
 
 </robot>
